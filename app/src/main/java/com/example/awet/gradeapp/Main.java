@@ -18,7 +18,7 @@ public class Main extends AppCompatActivity {
         btnGoToSummary.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent  t = new Intent(getApplicationContext(), SummaryGrade.class);
+                Intent  t = new Intent(getApplicationContext(), Summary.class);
                 startActivity(t);
             }
         });
