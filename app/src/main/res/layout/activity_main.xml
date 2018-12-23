@@ -6,7 +6,7 @@
               android:layout_height="match_parent"
               android:orientation="vertical"
               android:padding="25dp"
-              tools:context=".MainActivity">
+              >
 
     <TextView
             android:layout_width="match_parent"
@@ -15,6 +15,7 @@
             android:textAlignment="center"
             android:text="Grade"
             android:textSize="40dp"
+            android:textColor="@color/colorTitle"
     />
 
     <LinearLayout
