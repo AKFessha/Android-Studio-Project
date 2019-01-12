@@ -23,6 +23,14 @@ public class Main extends AppCompatActivity {
             }
         });
 
+        btnAdd = (Button) findViewById(R.id.btnAddGrade);
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
 
     }
 
