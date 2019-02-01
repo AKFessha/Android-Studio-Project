@@ -5,16 +5,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 public class Main extends AppCompatActivity {
     Button btnAdd, btnGoToSummary;
-
+    EditText txtGrade;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         btnGoToSummary = (Button) findViewById(R.id.btnShowSummary);
+        btnAdd= findViewById(R.id.btnAddGrade);
+        txtGrade= findViewById(R.id.txtGrade);
 
         btnGoToSummary.setOnClickListener(new View.OnClickListener() {
             @Override
