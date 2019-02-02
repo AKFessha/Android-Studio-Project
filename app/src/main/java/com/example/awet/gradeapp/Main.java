@@ -14,8 +14,8 @@ public class Main extends AppCompatActivity {
     Button btnAdd, btnGoToSummary;
     EditText txtGrade;
     String stGrade = null;
-    Double grade;
-    public static ArrayList<Double> listOfGrades= null;
+    public static ArrayList<Double> listOfGrades= new ArrayList<Double>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,22 +24,26 @@ public class Main extends AppCompatActivity {
         btnAdd= findViewById(R.id.btnAddGrade);
         txtGrade= findViewById(R.id.txtGrade);
 
+        //Adding grade to the arraylist by listening a click event
+
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 stGrade= txtGrade.getText().toString();
-                if(stGrade == null|| stGrade.equals("")){
-                   Toast tos = Toast.makeText(getApplicationContext(),"Please enter a grade ", Toast.LENGTH_LONG) ;
-                   tos.setMargin(0,50);
+                if(stGrade.isEmpty()){
+                   Toast tos = Toast.makeText(getApplicationContext(),"Please enter a grade ", Toast.LENGTH_LONG);
                    tos.show();
                 }
                 else if(listOfGrades.contains(Double.parseDouble(stGrade))){
                     Toast tos = Toast.makeText(getApplicationContext(),"Grade already exist", Toast.LENGTH_LONG) ;
-                    tos.setMargin(0,50);
                     tos.show();
                 }
                 else{
-
+                 listOfGrades.add(Double.parseDouble(stGrade));
+                 txtGrade.setText("");
+                 Toast tos = Toast.makeText(getApplicationContext(),"Grade is successfully added", Toast.LENGTH_LONG) ;
+                 tos.show();
                 }
             }
         });
@@ -52,14 +56,6 @@ public class Main extends AppCompatActivity {
                 Toast toast = Toast.makeText(getApplicationContext(), "This button has been clicked", Toast.LENGTH_LONG);
                 toast.setMargin(0,50);
                 toast.show();
-            }
-        });
-
-        btnAdd =  findViewById(R.id.btnAddGrade);
-        btnAdd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
             }
         });
 
