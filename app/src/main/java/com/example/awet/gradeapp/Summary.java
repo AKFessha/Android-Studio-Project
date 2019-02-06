@@ -29,8 +29,9 @@ public class Summary extends AppCompatActivity {
 
 
         for(int i=0; i<myGrades.size(); i++){
-            highgrade=0.0;
+
             if(myGrades.get(i)>highgrade){
+                highgrade=0.0;
                 highgrade= myGrades.get(i);
             }
         }
@@ -50,6 +51,7 @@ public class Summary extends AppCompatActivity {
             }
         averagegrade= sum/myGrades.size();
         averageGrade.setText(averagegrade.toString());
+
         totalgrade= sum;
          totalGrade.setText(totalgrade.toString());
 
