@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 
 public class Main extends AppCompatActivity {
     Button btnAdd, btnGoToSummary;
@@ -31,19 +32,23 @@ public class Main extends AppCompatActivity {
             public void onClick(View view) {
 
                 stGrade= txtGrade.getText().toString();
-                if(stGrade.isEmpty()){
-                   Toast tos = Toast.makeText(getApplicationContext(),"Please enter a grade ", Toast.LENGTH_LONG);
-                   tos.show();
+                try {
+                    if (stGrade.isEmpty()) {
+                        Toast tos = Toast.makeText(getApplicationContext(), "Please enter a grade ", Toast.LENGTH_LONG);
+                        tos.show();
+                    } else if (listOfGrades.contains(Double.parseDouble(stGrade))) {
+                        Toast tos = Toast.makeText(getApplicationContext(), "Grade already exist", Toast.LENGTH_LONG);
+                        tos.show();
+                    } else {
+                        listOfGrades.add(Double.parseDouble(stGrade));
+                        txtGrade.setText("");
+                        Toast tos = Toast.makeText(getApplicationContext(), "Grade is successfully added", Toast.LENGTH_LONG);
+                        tos.show();
+                    }
                 }
-                else if(listOfGrades.contains(Double.parseDouble(stGrade))){
-                    Toast tos = Toast.makeText(getApplicationContext(),"Grade already exist", Toast.LENGTH_LONG) ;
-                    tos.show();
-                }
-                else{
-                 listOfGrades.add(Double.parseDouble(stGrade));
-                 txtGrade.setText("");
-                 Toast tos = Toast.makeText(getApplicationContext(),"Grade is successfully added", Toast.LENGTH_LONG) ;
-                 tos.show();
+                catch(NumberFormatException e){
+                    Toast t = Toast.makeText(getApplicationContext(), "Please enter a number: ", Toast.LENGTH_LONG);
+                    t.show();
                 }
             }
         });
